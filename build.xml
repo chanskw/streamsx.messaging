@@ -57,7 +57,7 @@
 	</target>
 	
 	<target name="toolkitIndexOnly" description="Index the toolkit.">
-		<ant dir="${toolkit}" target="cpp" />
+		<ant dir="${toolkit}" target="toolkit" />
 	</target>
 
 	<target name="spldoc" depends="spldoc_work, revertversion" />
@@ -123,7 +123,7 @@
 	<!-- Targets to build releases -->
 	<target name="release" depends="clean, all, spldoc, toolkitIndexOnly">		
 		<mkdir dir="${tmp}" />
-		<property name="releasefilename" value="${tmp}/streamx.messaging.toolkits-${tkinfo.info:identity.info:version}-${DSTAMP}-${TSTAMP}.tgz" />
+		<property name="releasefilename" value="${tmp}/streamsx.messaging.toolkits-${tkinfo.info:identity.info:version}-${DSTAMP}-${TSTAMP}.tgz" />
 		<tar compression="gzip" longfile="gnu"
              destfile="${releasefilename}"
     	     basedir="${basedir}"
